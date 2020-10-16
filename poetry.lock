@@ -598,6 +598,17 @@ setproctitle = ["setproctitle"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
+name = "htbuilder"
+version = "0.3.0"
+description = "A purely-functional HTML builder for Python. Think JSX rather than templates."
+category = "main"
+optional = true
+python-versions = ">=3.5"
+
+[package.dependencies]
+iteration_utilities = "*"
+
+[[package]]
 name = "hydra-core"
 version = "0.11.3"
 description = "A framework for elegantly configuring complex applications"
@@ -741,6 +752,19 @@ pipfile = ["pipreqs", "requirementslib"]
 pyproject = ["toml"]
 requirements = ["pipreqs", "pip-api"]
 xdg_home = ["appdirs (>=1.4.0)"]
+
+[[package]]
+name = "iteration-utilities"
+version = "0.10.1"
+description = "Utilities based on Pythons iterators and generators."
+category = "main"
+optional = true
+python-versions = ">=3.5"
+
+[package.extras]
+all = ["pytest", "sphinx", "numpydoc"]
+doc = ["sphinx", "numpydoc"]
+test = ["pytest"]
 
 [[package]]
 name = "itsdangerous"
@@ -1929,8 +1953,19 @@ optional = true
 python-versions = ">=3.5"
 
 [[package]]
+name = "st-annotated-text"
+version = "1.0.1"
+description = "A simple component to display annotated text in Streamlit apps."
+category = "main"
+optional = true
+python-versions = ">=3.5"
+
+[package.dependencies]
+htbuilder = "*"
+
+[[package]]
 name = "streamlit"
-version = "0.68.1"
+version = "0.69.1"
 description = "The fastest way to build data apps in Python"
 category = "main"
 optional = true
@@ -1946,6 +1981,7 @@ botocore = ">=1.13.44"
 cachetools = ">=4.0"
 click = ">=7.0"
 enum-compat = "*"
+gitpython = "*"
 numpy = "*"
 packaging = "*"
 pandas = ">=0.21.0"
@@ -2355,7 +2391,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=3.5,<3.7.3 || >3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
 [extras]
-demo = ["streamlit"]
+demo = ["streamlit", "st-annotated-text"]
 embeddings = ["polyglot"]
 mlflow = ["mlflow"]
 plots = ["seaborn"]
@@ -2363,7 +2399,7 @@ plots = ["seaborn"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "d16f0d688143d3ff4be8e02d1af988948c5db422f3d3930c4935e6f940664c33"
+content-hash = "9c4933ed59dda2f29a08089f86c06b409fa01cfcac960b5ace26794b1d548b36"
 
 [metadata.files]
 absl-py = [
@@ -2710,6 +2746,9 @@ gunicorn = [
     {file = "gunicorn-20.0.4-py2.py3-none-any.whl", hash = "sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c"},
     {file = "gunicorn-20.0.4.tar.gz", hash = "sha256:1904bb2b8a43658807108d59c3f3d56c2b6121a701161de0ddf9ad140073c626"},
 ]
+htbuilder = [
+    {file = "htbuilder-0.3.0.tar.gz", hash = "sha256:d997f147586ccb5ffdcd44716429a5d91e835003b96e939ca4e1137cd25e7d50"},
+]
 hydra-core = [
     {file = "hydra-core-0.11.3.tar.gz", hash = "sha256:173d2688b65ba1345f4f43b6bc5a3d92485b3cebfccca2ca33d5f8a37ec6fdc6"},
     {file = "hydra_core-0.11.3-py3-none-any.whl", hash = "sha256:43ef27b4a32a70cbf566b10bd198def5c5d03cab212d4ea49e744aeb0c14a6b7"},
@@ -2749,6 +2788,30 @@ isodate = [
 isort = [
     {file = "isort-4.3.21-py2.py3-none-any.whl", hash = "sha256:6e811fcb295968434526407adb8796944f1988c5b65e8139058f2014cbe100fd"},
     {file = "isort-4.3.21.tar.gz", hash = "sha256:54da7e92468955c4fceacd0c86bd0ec997b0e1ee80d97f67c35a78b719dccab1"},
+]
+iteration-utilities = [
+    {file = "iteration_utilities-0.10.1-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:958c2aa52795d1100d9caffc3ed6aeda0e23577e3bc5694b3c8b6177c85fa57d"},
+    {file = "iteration_utilities-0.10.1-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:209e8a7b224445b66e8114392d7c8be7dc16a5d8d9cbdfca05592c460e037ad0"},
+    {file = "iteration_utilities-0.10.1-cp35-cp35m-manylinux2010_x86_64.whl", hash = "sha256:2fdd48be4cd26df65b7687761407e7d2cd7c9c4f50c9da2f6e0eda48d07a6523"},
+    {file = "iteration_utilities-0.10.1-cp36-cp36m-macosx_10_13_x86_64.whl", hash = "sha256:a64e08b510c7599b6819a56634aa2b1049207e4402d7ff99f9d4931fd6453e0e"},
+    {file = "iteration_utilities-0.10.1-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:aa36a008900f3bedbb62407ffd4a5acd45f7332979a9be93a3d9f501e1fbbdb0"},
+    {file = "iteration_utilities-0.10.1-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:6795db5161de263d606940a1994ab599ad608f6c0ff3229591776bb6898c0b8e"},
+    {file = "iteration_utilities-0.10.1-cp36-cp36m-manylinux2010_x86_64.whl", hash = "sha256:37b0f69583560f6c874b7bb7eb20ccaa6ee1a30858bee4e2d252ca6e8da744e0"},
+    {file = "iteration_utilities-0.10.1-cp36-cp36m-win32.whl", hash = "sha256:0128d3a4de0fada287304c603eee5cb09a454be7c708eee2330232791422afff"},
+    {file = "iteration_utilities-0.10.1-cp36-cp36m-win_amd64.whl", hash = "sha256:a985a46a05ff93e16966afd115c89bea5ddd8628593ac11a5208ac46ba69a120"},
+    {file = "iteration_utilities-0.10.1-cp37-cp37m-macosx_10_13_x86_64.whl", hash = "sha256:fb3071c217f26f1cd3eb00f017522fb2366ce1cd8a9aa26b5786ea273faba61a"},
+    {file = "iteration_utilities-0.10.1-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:ab514ba77e5bcde7f9950c481d4375b0a8936a96d242b3f05031bd9c4abf85cc"},
+    {file = "iteration_utilities-0.10.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:823573874438f947e003483e682d3d4e133098efbd073be03aa63f69113e957a"},
+    {file = "iteration_utilities-0.10.1-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:8bc6bb9ec4ac8a93dc0c6eb8eb6eab454b42dfa1f4caf9e90eb2774d6f5874c3"},
+    {file = "iteration_utilities-0.10.1-cp37-cp37m-win32.whl", hash = "sha256:20463e245382ba3ae245f106b6b5b2785461ad09d50bf7ba3e856493fea31feb"},
+    {file = "iteration_utilities-0.10.1-cp37-cp37m-win_amd64.whl", hash = "sha256:fbb7d325bf425f2a6090382b24ad3d596cbaf4cfcce826f409253116dc8f2c61"},
+    {file = "iteration_utilities-0.10.1-cp38-cp38-macosx_10_13_x86_64.whl", hash = "sha256:1ffd5c005ef6bc6f16477b97b2f45426b59a519bb4fee7439089b2c02941f8ca"},
+    {file = "iteration_utilities-0.10.1-cp38-cp38-manylinux1_i686.whl", hash = "sha256:2e4b879e8ef248741eac50095e09437014e6e96768dba15bceff9689a8931c72"},
+    {file = "iteration_utilities-0.10.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:952afb5a8d41211ffde7fe88178aaf76745a9024ada7d093ce4949d905e3321c"},
+    {file = "iteration_utilities-0.10.1-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:e634c9d1f9f4c2276617e6c106ce7b3a36db83aa68d75a59a010a2fc242375f4"},
+    {file = "iteration_utilities-0.10.1-cp38-cp38-win32.whl", hash = "sha256:82bd428ae468b01230d5415f98373256067cf17ce7f754f031f1c7f43e322f52"},
+    {file = "iteration_utilities-0.10.1-cp38-cp38-win_amd64.whl", hash = "sha256:8233731c39d614b4939557fa409b57fe136c7570aa54d57bffe0271fe9682424"},
+    {file = "iteration_utilities-0.10.1.tar.gz", hash = "sha256:536e3e87c5c139c775f9d95bb771c4b366a1d58eb7a39436d4ac839b53742569"},
 ]
 itsdangerous = [
     {file = "itsdangerous-1.1.0-py2.py3-none-any.whl", hash = "sha256:b12271b2047cb23eeb98c8b5622e2e5c5e9abd9784a153e9d8ef9cb4dd09d749"},
@@ -3464,8 +3527,11 @@ sqlparse = [
     {file = "sqlparse-0.4.1-py3-none-any.whl", hash = "sha256:017cde379adbd6a1f15a61873f43e8274179378e95ef3fede90b5aa64d304ed0"},
     {file = "sqlparse-0.4.1.tar.gz", hash = "sha256:0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"},
 ]
+st-annotated-text = [
+    {file = "st-annotated-text-1.0.1.tar.gz", hash = "sha256:da31f554b67cf69d4d68a9079d2c0efe39eb7251405c0bfd8f9aaa28b84828fe"},
+]
 streamlit = [
-    {file = "streamlit-0.68.1-py2.py3-none-any.whl", hash = "sha256:d7a163d66915bd31dcc005261246617f50e3e0b41ace2757332f3ef8658d2404"},
+    {file = "streamlit-0.69.1-py2.py3-none-any.whl", hash = "sha256:0630bbe2d29e4d2aed49d8dd7b1a1be26baa0def6ddd275f9cc33ae9a9f80af9"},
 ]
 tabulate = [
     {file = "tabulate-0.8.7-py3-none-any.whl", hash = "sha256:ac64cb76d53b1231d364babcd72abbb16855adac7de6665122f97b593f1eb2ba"},
